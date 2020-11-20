@@ -6,8 +6,6 @@ using namespace NL;
 using namespace std;
 Mutex cntlock;
 int cnt = 0;
-Mutex veclock;
-std::vector<int> vec;
 
 void testFunc1()
 {
@@ -32,11 +30,4 @@ TEST(MUTEX, CNT)
         ts[i]->join();
     }
     ASSERT_EQ(cnt, 16 * 10);
-}
-
-int main(int argc, char **argv)
-{
-    testing::InitGoogleTest(&argc, argv);
-
-    return RUN_ALL_TESTS();
 }

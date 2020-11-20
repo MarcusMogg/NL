@@ -41,7 +41,7 @@ public:
 
     void unlock()
     {
-        unassignHolder();
+        //unassignHolder();
         MCHECK(pthread_mutex_unlock(&mutex_));
     }
 

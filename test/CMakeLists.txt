@@ -1,7 +1,10 @@
 project (test)
 
 set(TEST_SOURCES
-    sync/mutex_test.cc
+    test_all.cc
+    # sync/mutex_test.cc
+    # sync/cond_test.cc
+    sync/wg_test.cc
 )
 
 add_executable(unit_tests ${TEST_SOURCES})
