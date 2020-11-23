@@ -1,6 +1,7 @@
 #ifndef _NL_CURRENTTHREAD_H_
 #define _NL_CURRENTTHREAD_H_
 
+#include "common/types.h"
 namespace NL
 {
 namespace CurrentThread
@@ -20,6 +21,21 @@ inline int tid()
         cacheTid();
     }
     return t_cachedTid;
+}
+
+inline const char *tidString() // for logging
+{
+    return t_tidString;
+}
+
+inline int tidStringLength() // for logging
+{
+    return t_tidStringLength;
+}
+
+inline const char *name()
+{
+    return t_threadName;
 }
 
 } // namespace CurrentThread

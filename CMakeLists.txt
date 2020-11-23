@@ -5,8 +5,9 @@ project (NL VERSION 0.0.0)
 set(SOURCES
     src/sync/condition.cc
     src/sync/wait_group.cc
-    src/thread/thread.cc
     src/thread/current_thread.cc
+    src/thread/thread.cc
+    src/thread/thread_pool.cc
 )
 
 set(CXX_FLAGS

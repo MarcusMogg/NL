@@ -74,14 +74,6 @@ struct ThreadData
             func_();
             CurrentThread::t_threadName = "finished";
         }
-        /*catch (const Exception &ex)
-        {
-            muduo::CurrentThread::t_threadName = "crashed";
-            fprintf(stderr, "exception caught in Thread %s\n", name_.c_str());
-            fprintf(stderr, "reason: %s\n", ex.what());
-            fprintf(stderr, "stack trace: %s\n", ex.stackTrace());
-            abort();
-        }*/
         catch (const std::exception &ex)
         {
             CurrentThread::t_threadName = "crashed";
