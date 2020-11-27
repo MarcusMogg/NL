@@ -5,7 +5,8 @@ set(TEST_SOURCES
     # sync/mutex_test.cc
     # sync/cond_test.cc
     # sync/wg_test.cc
-    thread/thread_pool_test.cc
+    # thread/thread_pool_test.cc
+    log/log_stream_test.cc
 )
 
 add_executable(unit_tests ${TEST_SOURCES})

@@ -8,6 +8,7 @@ set(SOURCES
     src/thread/current_thread.cc
     src/thread/thread.cc
     src/thread/thread_pool.cc
+    src/log/log_stream.cc
 )
 
 set(CXX_FLAGS
