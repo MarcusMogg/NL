@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project (NL VERSION 0.0.0)
 
+set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
+
 set(SOURCES
     src/sync/condition.cc
     src/sync/wait_group.cc
@@ -9,6 +11,8 @@ set(SOURCES
     src/thread/thread.cc
     src/thread/thread_pool.cc
     src/log/log_stream.cc
+    src/time/date.cc 
+    src/time/time_zone.cc 
 )
 
 set(CXX_FLAGS
