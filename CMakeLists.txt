@@ -1,18 +1,32 @@
 cmake_minimum_required(VERSION 3.5)
 
-project (NL VERSION 0.0.0)
-
 set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
 
+project (NL VERSION 0.0.0)
+
+# use following command to list all
+# find $PWD/src | xargs ls -ld | grep cc|awk '{print $9}' | sed "s@$PWD/@@g"
 set(SOURCES
+    src/log/file_util.cc
+    src/log/log_file.cc
+    src/log/log_stream.cc
+    src/log/logging.cc
+    src/net/acceptor.cc
+    src/net/address.cc
+    src/net/channel.cc
+    src/net/event_loop.cc
+    src/net/event_loop_thread.cc
+    src/net/poller.cc
+    src/net/socket.cc
+    src/net/socket_opts.cc
+    src/net/timer_queue.cc
     src/sync/condition.cc
     src/sync/wait_group.cc
     src/thread/current_thread.cc
     src/thread/thread.cc
     src/thread/thread_pool.cc
-    src/log/log_stream.cc
-    src/time/date.cc 
-    src/time/time_zone.cc 
+    src/time/date.cc
+    src/time/time_zone.cc
 )
 
 set(CXX_FLAGS

@@ -6,7 +6,7 @@ using namespace NL;
 EventLoopThread::EventLoopThread()
     : loop_(nullptr),
       exiting_(false),
-      thread_(std::bind(threadFunc, this)),
+      thread_(std::bind(&EventLoopThread::threadFunc, this)),
       mutex_(),
       cond_(mutex_)
 {

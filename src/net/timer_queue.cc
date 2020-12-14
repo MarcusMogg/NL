@@ -6,10 +6,10 @@
 #include "net/timer_queue.h"
 
 using namespace NL;
-
+std::atomic<int64_t> Timer::s_numCreated_;
 void Timer::restart(Timestamp now)
 {
-    if (repeat)
+    if (repeat())
     {
         expiration_ = Timestamp::addSecond(now, interval_);
     }
@@ -82,7 +82,7 @@ TimerQueue::TimerQueue(EventLoop *loop)
       timerfdChannel_(loop, timerfd_),
       callingExpiredTimers_(false)
 {
-    timerfdChannel_.setReadCallBack(std::bind(&handleRead, this));
+    timerfdChannel_.setReadCallBack(std::bind(&TimerQueue::handleRead, this));
     timerfdChannel_.enableReading();
 }
 

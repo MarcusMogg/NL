@@ -9,7 +9,7 @@
 
 namespace NL
 {
-namespace FileUtil
+namespace FileUitl
 {
 class AppendFile;
 }

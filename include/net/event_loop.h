@@ -9,7 +9,7 @@
 #include "net/callbacks.h"
 #include "sync/mutex.h"
 #include "thread/current_thread.h"
-
+#include "time/time_stamp.h"
 namespace NL
 {
 class Channel;
@@ -38,7 +38,6 @@ public:
 
     static EventLoop *getEventLoopCurThread();
 
-    void updateChannel(Channel *);
     void quit();
 
     void runInLoop(Functor cb);

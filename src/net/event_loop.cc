@@ -99,12 +99,6 @@ void EventLoop::abortNotInLoopThread()
               << " was created in threadId_ = " << threadId_
               << ", current thread id = " << CurrentThread::tid();
 }
-
-void EventLoop::updateChannel(Channel *ch)
-{
-    poller_->updateChannel(ch);
-}
-
 void EventLoop::quit()
 {
     quit_ = true;
@@ -164,7 +158,7 @@ TimerId EventLoop::runEvery(double interval, TimerCallBack cb)
 
 void EventLoop::cancel(TimerId timerId)
 {
-    return timerQueue_->cancel(timerId);
+    //timerQueue_->cancel(timerId);
 }
 
 void EventLoop::updateChannel(Channel *channel)

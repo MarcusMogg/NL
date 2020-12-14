@@ -1,4 +1,5 @@
 #include <fcntl.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #include "log/file_util.h"
@@ -94,7 +95,7 @@ int ReadSmallFile::readToString(int maxSize,
                 if (S_ISREG(statbuf.st_mode))
                 {
                     *fileSize = statbuf.st_size;
-                    content->reserve(static_cast<int>(std::min(implicit_cast<int64_t>(maxSize), *fileSize)));
+                    content->reserve(static_cast<int>(std::min(static_cast<int64_t>(maxSize), *fileSize)));
                 }
                 else if (S_ISDIR(statbuf.st_mode))
                 {
@@ -115,9 +116,9 @@ int ReadSmallFile::readToString(int maxSize,
             }
         }
 
-        while (content->size() < implicit_cast<size_t>(maxSize))
+        while (content->size() < static_cast<size_t>(maxSize))
         {
-            size_t toRead = std::min(implicit_cast<size_t>(maxSize) - content->size(), sizeof(buf_));
+            size_t toRead = std::min(static_cast<size_t>(maxSize) - content->size(), sizeof(buf_));
             ssize_t n = ::read(fd_, buf_, toRead);
             if (n > 0)
             {

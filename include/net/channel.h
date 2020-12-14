@@ -34,7 +34,7 @@ public:
 
     int fd() const { return fd_; }
     int evnets() const { return evnets_; }
-    int setRevents(int re) { revnets_ = re; }
+    void setRevents(int re) { revnets_ = re; }
     bool isNoneEvent() const { return evnets_ == kNoneEvent; }
 
     void enableReading()

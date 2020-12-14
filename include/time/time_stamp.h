@@ -51,11 +51,11 @@ public:
         return buf;
     }
 
-    bool operator<(Timestamp rhs)
+    bool operator<(const Timestamp &rhs) const
     {
         return usSinceEpoch_ < rhs.usSinceEpoch_;
     }
-    bool operator==(Timestamp rhs)
+    bool operator==(const Timestamp &rhs) const
     {
         return usSinceEpoch_ == rhs.usSinceEpoch_;
     }
