@@ -31,10 +31,13 @@ void Acceptor::handleRead()
     int connfd = acceptSocket_.accept(&peerAddr);
     if (connfd >= 0)
     {
-        Socket s(connfd);
         if (newConnectionCallback_)
         {
-            newConnectionCallback_(std::move(s), peerAddr);
+            newConnectionCallback_(connfd, peerAddr);
+        }
+        else
+        {
+            sockets::close(connfd);
         }
     }
 }

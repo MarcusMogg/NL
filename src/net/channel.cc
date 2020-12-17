@@ -34,7 +34,12 @@ void Channel::handleEvent()
     {
         LOG_WARN << "Channel::handleEvent POLLNVAL";
     }
-
+    if ((revnets_ & POLLHUP) && !(revnets_ & POLLIN))
+    {
+        LOG_WARN << "Channel::handle_event() POLLHUP";
+        if (closeCallBack_)
+            closeCallBack_();
+    }
     if (revnets_ & (POLLNVAL | POLLERR))
     {
         if (errorCallBack_)

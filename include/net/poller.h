@@ -26,6 +26,7 @@ public:
     Timestamp poll(int timeOutMs, ChannelList &activeChannels);
 
     void updateChannel(Channel *ch);
+    void removeChannel(Channel *channel);
 
 private:
     void fillActiceChannels(int numEvents, ChannelList &activeChannels) const;

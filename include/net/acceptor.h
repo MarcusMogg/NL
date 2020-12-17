@@ -15,9 +15,10 @@ class EventLoop;
 class Acceptor : noncopyable
 {
 public:
-    using NewConnectionCallback = std::function<void(Socket sock,
+    using NewConnectionCallback = std::function<void(int fd,
                                                      const Address &)>;
     Acceptor(EventLoop *loop, const Address &listenAddr);
+    ~Acceptor() {}
 
     void setNewConnectionCallback(const NewConnectionCallback &cb)
     {

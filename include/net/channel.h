@@ -31,6 +31,10 @@ public:
     {
         errorCallBack_ = cb;
     }
+    void setCloseCallBack(const EventCallBack &cb)
+    {
+        closeCallBack_ = cb;
+    }
 
     int fd() const { return fd_; }
     int evnets() const { return evnets_; }
@@ -81,6 +85,7 @@ private:
     EventCallBack readCallBack_;
     EventCallBack writeCallBack_;
     EventCallBack errorCallBack_;
+    EventCallBack closeCallBack_;
 };
 } // namespace NL
 

@@ -55,6 +55,8 @@ void listenOrDie(int sockfd);
 int accept(int sockfd, struct sockaddr_in *addr);
 void close(int sockfd);
 
+struct sockaddr_in getLocalAddr(int sockfd);
+int getSocketError(int sockfd);
 } // namespace sockets
 } // namespace NL
 #endif

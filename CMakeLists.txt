@@ -19,12 +19,14 @@ set(SOURCES
     src/net/poller.cc
     src/net/socket.cc
     src/net/socket_opts.cc
+    src/net/tcp_connection.cc
+    src/net/tcp_server.cc
     src/net/timer_queue.cc
     src/sync/condition.cc
     src/sync/wait_group.cc
     src/thread/current_thread.cc
     src/thread/thread.cc
-    src/thread/thread_pool.cc
+    src/thread/thread_pool.cc 
     src/time/date.cc
     src/time/time_zone.cc
 )
